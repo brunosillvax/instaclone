@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🏠 Dashboard - DeepReplicator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+<body>
+<nav aria-label="Menu principal">
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+  <a href="{{ url_for('logs') }}">📝 Logs</a>
+  <a href="{{ url_for('instagram_oauth_config') }}">🔐 Configurar OAuth</a>
+  <a href="{{ url_for('logout') }}">🚪 Sair</a>
+</nav>
+
+<div class="container">
+  <h1>🏠 Dashboard <span class="emoji">🤖</span></h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}
+        <div class="flash {{ category }}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <h2>🔐 Status da Conta Instagram (OAuth)</h2>
+  {% if oauth_status == 'connected' %}
+    <p><strong style="color:#4cff99;">✅ Conectado</strong></p>
+    <p>🆔 ID Instagram: {{ token_data.ig_user_id }}</p>
+    <p>🔑 Token salvo no banco de dados</p>
+  {% else %}
+    <p><strong style="color:#ff4c4c;">❌ Não conectado</strong></p>
+    <a href="{{ url_for('instagram_oauth_start') }}" class="btn">🔗 Autorizar via Instagram</a>
+  {% endif %}
+
+  <hr />
+  <h2>📊 Logs Recentes</h2>
+  <p>Confira os <a href="{{ url_for('logs') }}">📝 registros de atividade</a> para ver detalhes.</p>
+</div>
+
+<style>
+.btn {
+  background: #0f0;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #4cff99;
+}
+</style>
+
+</body>
+</html>

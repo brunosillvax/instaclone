@@ -1,0 +1,395 @@
+/* static/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #121212, #1a1a1a);
+  color: #e0f7f4;
+}
+
+nav {
+  background-color: #0f3f3f;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 1.1em;
+  border-bottom: 3px solid #00ffe0;
+  box-shadow: 0 3px 8px rgba(0, 255, 224, 0.4);
+}
+
+nav a {
+  color: #00ffe0;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  background-color: #00ffe0;
+  color: #121212;
+  box-shadow: 0 0 10px #00ffe0;
+}
+
+.container {
+  max-width: 720px;
+  margin: 40px auto;
+  background-color: #142a2a;
+  padding: 30px 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 30px rgba(0, 255, 224, 0.3);
+  position: relative;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #00ffe0;
+  text-shadow: 0 0 6px #00ffe0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 2px solid #00ffe0;
+  background-color: #0a2e2e;
+  color: #e0f7f4;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: #66fff2;
+  outline: none;
+  box-shadow: 0 0 8px #66fff2;
+}
+
+button {
+  background-color: #00ffe0;
+  border: none;
+  color: #121212;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 15px #00ffe0;
+}
+
+button:hover {
+  background-color: #00ccaf;
+  box-shadow: 0 0 25px #00ccaf;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 25px #00ccaf; }
+  50% { box-shadow: 0 0 40px #00ffe0; }
+}
+
+/* Flash messages */
+
+.flash {
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 255, 224, 0.5);
+  user-select: none;
+}
+
+.flash.error {
+  background-color: #ff4c4c;
+  color: white;
+}
+
+.flash.success {
+  background-color: #4cff99;
+  color: #005700;
+}
+
+/* Table for logs */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #c0fff7;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #00ffe0aa;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #00675f;
+  color: #e0f7f4;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+tr:hover {
+  background-color: #004d40cc;
+  cursor: default;
+}
+
+.flash.success {
+  background-color: #4cff99;
+  color: #003300;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+.flash.error {
+  background-color: #ff4c4c;
+  color: #330000;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* Estilo base - fundo escuro e texto verde neon */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000; /* fundo escuro */
+  color: #00ffcc; /* texto neon */
+  padding: 10px;
+}
+
+/* Navegação */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffcc;
+  margin-bottom: 20px;
+}
+nav a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+nav a:hover,
+nav a:focus {
+  background-color: #00ffaa;
+  color: #000;
+  outline: none;
+}
+
+/* Container principal */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Cabeçalhos */
+h1, h2, h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Parágrafos */
+p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Separadores */
+hr {
+  border: 1px solid #00ffcc;
+  margin: 30px 0;
+}
+
+/* Barra de progresso */
+.progress-container {
+  width: 100%;
+  max-width: 400px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00ffcc;
+  margin: 10px auto 30px auto;
+}
+.progress-bar {
+  height: 20px;
+  background: linear-gradient(90deg, #00ffcc, #00ffaa);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* Contador */
+.contador {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  color: #00ffcc;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Emojis com animação */
+.emoji {
+  font-size: 2rem;
+  display: inline-block;
+  animation: pulse 2s infinite ease-in-out;
+  margin-left: 8px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);}
+  50% { transform: scale(1.15);}
+}
+
+/* Mensagens flash */
+.flash {
+  background-color: #002222;
+  border: 1px solid #00ffcc;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #00ffcc;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+  }
+  .container {
+    padding: 15px;
+    margin: 10px;
+  }
+  .progress-container {
+    max-width: 100%;
+  }
+  .contador {
+    font-size: 1.1rem;
+  }
+}
+
+/* static/css/style.css */
+
+/* Barra de progresso e animações */
+.progress-container {
+  width: 100%;
+  max-width: 400px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00ffcc;
+  margin: 10px 0 30px 0;
+}
+.progress-bar {
+  height: 20px;
+  background: linear-gradient(90deg, #00ffcc, #00ffaa);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.contador {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  color: #00ffcc;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.emoji {
+  font-size: 2rem;
+  display: inline-block;
+  animation: pulse 2s infinite ease-in-out;
+  margin-left: 8px;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1);}
+  50% { transform: scale(1.15);}
+}
+
+/* Menu de navegação */
+nav a {
+  margin-right: 15px;
+  color: #00ffcc;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Flash messages */
+.flash {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+.flash.success {
+  background-color: #004d33;
+  color: #00ff99;
+}
+.flash.error {
+  background-color: #4d0000;
+  color: #ff4c4c;
+}
+
+/* Container principal */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #000;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffcc;
+  color: #00ffcc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.progress-container {
+  width: 100%;
+  background-color: #222;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 20px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #4cff99, #00cc66);
+  transition: width 0.3s ease;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔐 Configurar Login Instagram - DeepReplicator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+  <a href="{{ url_for('logs') }}">📝 Logs</a>
+  <a href="{{ url_for('config') }}">🔧 Configuração</a>
+  <a href="{{ url_for('add_account') }}">👤 Conta Fonte</a>
+  <a href="{{ url_for('login_config') }}">🔐 Login Instagram</a>
+  <a href="{{ url_for('logout') }}">🚪 Sair</a>
+</nav>
+
+<div class="container">
+  <h1>🔐 Configurar Login Instagram (Conta que posta)</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="{{ url_for('login_config') }}">
+    <label for="username">👤 Usuário:</label>
+    <input type="text" id="username" name="username" value="{{ username }}" required />
+
+    <label for="password">🔑 Senha:</label>
+    <input type="password" id="password" name="password" value="{{ password }}" required />
+
+    <button type="submit">Salvar Credenciais</button>
+  </form>
+</div>
+</body>
+</html>

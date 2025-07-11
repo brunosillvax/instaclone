@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>📧 Configurar E-mail 2FA - DeepReplicator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+  <a href="{{ url_for('email_config') }}">📧 Configurar E-mail 2FA</a>
+  <a href="{{ url_for('logout') }}">🚪 Sair</a>
+</nav>
+
+<div class="container">
+  <h1>📧 Configurar E-mail 2FA</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}
+        <div class="flash {{ category }}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST">
+    <label for="email_address">Endereço de E-mail:</label><br />
+    <input type="email" name="email_address" id="email_address" value="{{ email_address }}" required /><br /><br />
+
+    <label for="email_password">Senha do E-mail (App Password se usar Gmail):</label><br />
+    <input type="password" name="email_password" id="email_password" value="{{ email_password }}" required /><br /><br />
+
+    <button type="submit">Salvar Configurações</button>
+  </form>
+</div>
+</body>
+</html>

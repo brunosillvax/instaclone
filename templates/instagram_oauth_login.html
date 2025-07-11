@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login com Instagram</title>
+</head>
+<body>
+    <h2>Login com Instagram</h2>
+    <a href="{{ url_for('instagram_oauth_auth') }}">
+        <button>Logar com Instagram</button>
+    </a>
+    <br><br>
+    <a href="{{ url_for('login') }}">Login com usuário/senha</a>
+</body>
+</html>

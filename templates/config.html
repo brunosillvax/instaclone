@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🔧 Configuração - DeepReplicator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<nav aria-label="Menu principal">
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+  <a href="{{ url_for('logs') }}">📝 Logs</a>
+  <a href="{{ url_for('config') }}">🔧 Configuração</a>
+  <a href="{{ url_for('add_account') }}">👤 Conta Fonte</a>
+  <a href="{{ url_for('login_config') }}">🔐 Login Instagram</a>
+  <a href="{{ url_for('twofa_config') }}">🔐 Configurar 2FA</a>
+  <a href="{{ url_for('logout') }}">🚪 Sair</a>
+</nav>
+
+<div class="container">
+  <h1>🔧 Configuração Geral</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}
+        <div class="flash {{ category }}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form action="{{ url_for('config') }}" method="POST">
+    <label for="instagram_source">Usuário Fonte Instagram:</label>
+    <input type="text" id="instagram_source" name="instagram_source" value="{{ config.instagram_source }}" required />
+
+    <label for="interval_seconds">Intervalo de Verificação (segundos):</label>
+    <input type="number" id="interval_seconds" name="interval_seconds" min="300" value="{{ config.interval_seconds }}" required />
+
+    <button type="submit">Salvar</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>📝 Logs - DeepReplicator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+<nav aria-label="Menu principal">
+  <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+  <a href="{{ url_for('logs') }}">📝 Logs</a>
+  <a href="{{ url_for('config') }}">🔧 Configuração</a>
+  <a href="{{ url_for('add_account') }}">👤 Conta Fonte</a>
+  <a href="{{ url_for('login_config') }}">🔐 Login Instagram</a>
+  <a href="{{ url_for('twofa_config') }}">🔐 Configurar 2FA</a>
+  <a href="{{ url_for('logout') }}">🚪 Sair</a>
+</nav>
+
+<div class="container">
+  <h1>📝 Logs Recentes</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}
+        <div class="flash {{ category }}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form action="{{ url_for('delete_logs') }}" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar todos os logs?');">
+    <button type="submit" class="btn-delete">🗑️ Limpar Logs</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Nível</th>
+        <th>Mensagem</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+      <tr>
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.level }}</td>
+        <td>{{ log.message }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="3">Nenhum log encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
